@@ -2,7 +2,6 @@ package gographics
 
 import (
 	"image"
-	"image/color"
 )
 
 func DrawRect(img *image.Paletted, vec1, vec2 [2]int, col uint8) {
@@ -12,7 +11,7 @@ func DrawRect(img *image.Paletted, vec1, vec2 [2]int, col uint8) {
 	DrawLine(img, [2]int{vec2[0], vec1[1]}, [2]int{vec2[0], vec2[1]}, col) // right
 }
 
-func DrawFilledRect(img *image.Paletted, vec1, vec2 [2]int, col color.RGBA) {
+func DrawFilledRect(img *image.Paletted, vec1, vec2 [2]int, col uint8) {
 	// swap x1 and x2 if x1 is larger than x2
 	if vec1[0] > vec2[0] {
 		x := vec1[0]
@@ -29,7 +28,7 @@ func DrawFilledRect(img *image.Paletted, vec1, vec2 [2]int, col color.RGBA) {
 
 	for i := vec1[0]; i < vec2[0]; i++ {
 		for k := vec1[1]; k < vec2[1]; k++ {
-			img.Set(i, k, col)
+			img.SetColorIndex(i, k, col)
 		}
 	}
 }
