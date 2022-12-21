@@ -5,7 +5,7 @@ import (
 	"image/color"
 )
 
-func DrawRect(img *image.Paletted, vec1, vec2 [2]int, col color.RGBA) {
+func DrawRect(img *image.Paletted, vec1, vec2 [2]int, col uint8) {
 	DrawLine(img, [2]int{vec1[0], vec1[1]}, [2]int{vec2[0], vec1[1]}, col) // top line
 	DrawLine(img, [2]int{vec1[0], vec2[1]}, [2]int{vec2[0], vec2[1]}, col) // bottom line
 	DrawLine(img, [2]int{vec1[0], vec1[1]}, [2]int{vec1[0], vec2[1]}, col) // left line
